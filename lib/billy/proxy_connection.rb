@@ -85,7 +85,7 @@ module Billy
       else
         close_connection
         body_msg = @parser.http_method == 'post' ? " with body '#{@body}'" : ''
-        raise "puffing-billy: Connection to #{@url}#{body_msg} not cached and new http connections are disabled"
+        Billy.log(:error, "puffing-billy: Connection to #{@url}#{body_msg} not cached and new http connections are disabled")
       end
     end
 
